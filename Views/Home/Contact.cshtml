@@ -1,0 +1,114 @@
+﻿@model IEnumerable<E_Commerse_Store.Models.getallproduct>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<!--banner-starts-->
+<div class="bnr" id="home">
+    <div id="top" class="callbacks_container">
+        <ul class="rslides" id="slider4">
+            @foreach (var item in Model)
+            {
+                <li>
+                    @if (!string.IsNullOrWhiteSpace(item.B_Picture1))
+                    {
+                        <img src="~/Content/Image/@Url.Content(item.B_Picture1)" />
+                    }
+                </li>
+                <li>
+                    @if (!string.IsNullOrWhiteSpace(item.B_Picture2))
+                    {
+                        <img src="~/Content/Image/@Url.Content(item.B_Picture2)" />
+                    }
+                </li>
+                <li>
+                    @if (!string.IsNullOrWhiteSpace(item.B_Picture3))
+                    {
+                        <img src="~/Content/Image/@Url.Content(item.B_Picture3)" />
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!--banner-ends-->
+<!--about-starts-->
+<div class="about">
+    <div class="container">
+
+        <div class="about-top grid-1">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action( "Index", "Products", null)" class="mask">
+
+                    <div class="col-md-4 about-left">
+                        <figure class="effect-bubba">
+
+                            @if (!string.IsNullOrWhiteSpace(item.C_Picture))
+                            {
+                                <img class="img-responsive"
+                                     src="~/Content/Image/@Url.Content(item.C_Picture)"
+                                     alt="" />
+                            }
+                            <figcaption>
+                                <h2>@item.pro_Name</h2>
+                                <p>@item.C_Description</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </a>
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--about-end-->
+<!--product-starts-->
+<div class="product">
+    <div class="container">
+        <div class="product-top">
+            <div class="product-one">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-md-3 product-left">
+                        <div class="product-main simpleCart_shelfItem">
+                            <a href="@Url.Action("Single","Home",new {id = item.Id })" class="mask">
+                                @*<img class="img-responsive zoom-img" src="images/p-1.png" alt="" />*@
+
+                                @if (!string.IsNullOrWhiteSpace(item.Picture1))
+                                {
+                                    <img class="img-responsive zoom-img"
+                                         src="~/Content/Image/@Url.Content(item.Picture1)"
+                                         alt="" />
+                                }
+
+                            </a>
+                            <div class="product-bottom">
+                                <p>@item.pro_Categories</p>
+                                <h3>@item.pro_Name</h3>
+
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ @item.Price</span></h4>
+                            </div>
+                            <div class="srch">
+                                <span>-@item.Discount%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--product-end-->

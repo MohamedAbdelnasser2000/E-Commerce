@@ -1,0 +1,120 @@
+﻿@model IEnumerable<E_Commerse_Store.Models.SubCategory>
+
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main class="main">
+
+    <section class="card-area">
+
+        <!-- Card: Camping -->
+        <section class="card-section">
+
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--camping">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
+                                        <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5m2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    <h2 class="card-front__heading">
+                                        @item.Name
+                                    </h2>
+                                    <p class="card-front__text-price">
+                                        @item.Category.Name
+                                    </p>
+                                </div>
+
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view card-front__text-view--camping">
+                                        View me
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                @if (!string.IsNullOrWhiteSpace(item.Picture1))
+                                {
+                                    <img class=""
+                                         src="~/Content/Image/@Url.Content(item.Picture1)"
+                                         alt="" />
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inside-page">
+                        <div class="inside-page__container">
+                            <h3 class="inside-page__heading inside-page__heading--camping">
+                                @item.Name
+                            </h3>
+                            <p class="inside-page__text">
+                                @item.Description
+                            </p>
+                            <a href="@Url.Action("Index", "Products", new { SubCategories = item.Name }, null)" class="inside-page__btn inside-page__btn--camping">Products</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+
+
+
+    </section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="card-container">
+    <div class="card">
+        <h3>Hover me</h3><br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod maiores sapiente non asperiores deleniti, quos eos placeat corrupti id consequatur ullam accusantium, nesciunt aut fugiat at ipsam harum eveniet dolore.</p>
+        <div class="layers">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <div class="card">
+        <h3>Hover me</h3><br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod maiores sapiente non asperiores deleniti, quos eos placeat corrupti id consequatur ullam accusantium, nesciunt aut fugiat at ipsam harum eveniet dolore.</p>
+        <div class="layers">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+    </div>
+</div>

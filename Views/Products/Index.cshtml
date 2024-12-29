@@ -1,0 +1,319 @@
+﻿@model E_Commerse_Store.ViewModels.ProductIndexViewModel
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<p>
+    @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found")
+    @Model.Products.TotalItemCount products
+</p>
+<p>
+
+    @using (Html.BeginRouteForm("ProductsIndex", FormMethod.Get))
+    {
+        <label>Filter by category :  </label>
+        @Html.DropDownListFor(vm => vm.Category, Model.CatFilterItems, "All") ;
+
+        <label>Filter by Subcategory :  </label>
+        @Html.DropDownListFor(vm => vm.SubCategory, Model.SubCatFilterItems, "All") ;
+
+        <label> &nbsp; &nbsp; &nbsp; &nbsp;Sort by:</label>
+        @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default")
+
+        <input type="submit" value="Filter" />
+        <input type="hidden" name="Search" id="Search" value="@Model.Search" />
+    }
+
+
+
+</p>
+
+
+
+
+
+
+<div class="top-products" style="padding-left:10px">
+    <div class="container">
+        <h3>Top Products</h3>
+        <div class="sap_tabs">
+            <div id="horizontalTab">
+                @*<ul class="resp-tabs-list">
+                    <li class="resp-tab-item"><span>Men's</span></li>
+                    <li class="resp-tab-item"><span>Women</span></li>
+                    <li class="resp-tab-item"><span>Handbags</span></li>
+                    <li class="resp-tab-item"><span>Cosmetics</span></li>
+                </ul>*@
+                <div class="clearfix"> </div>
+                <div class="container">
+
+
+                    <div class="content">
+                        @foreach (var item in Model.Products)
+                        {
+
+                            <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+                                <a href="@Url.Action("AddtoCart","Home",new {id = item.Id })">
+                                    <div class="product-img">
+                                        @*<img src="images/tp1.jpg" alt="" />*@
+
+
+                                        @if (!string.IsNullOrWhiteSpace(item.Picture1))
+                                        {
+                                            <img class="card-img-bottom d-block radius-image-full"
+                                                 src="~/Content/Image/@Url.Content(item.Picture1)"
+                                                 alt="" />
+                                        }
+                                        <div class="p-mask">
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="w3ls1_item" value="Formal shoes" />
+                                                <input type="hidden" name="amount" value="220.00" />
+                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </a>
+                                @*<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                <i class="fa fa-star gray-star" aria-hidden="true"></i>*@
+                                @*<h4>@item.Category.Name</h4>*@
+                                <h5>@item.Name</h5>
+                                <h5>@item.Price</h5>
+                            </div>
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Discription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().QuantityPerUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().OldPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().UnitWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().UnitInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().UnitOnOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().ProductAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().ImageURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().AltText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().AddBadge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().OfferTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().OfferBadgeClass)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().LongDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Picture1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Picture2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Picture3)
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Picture4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Note)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().SubCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products.First().Supplier)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Products)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OldPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitInStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitOnOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddBadge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferBadgeClass)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.LongDescription)
+        </td>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(item.Picture1))
+            {
+                <img class="card-img-bottom d-block radius-image-full"
+                     src="~/Content/Image/@Url.Content(item.Picture1)"
+                     height="50"
+                     alt="Card image cap" />
+            }
+        </td>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(item.Picture2))
+            {
+                <img class="card-img-bottom d-block radius-image-full"
+                     src="~/Content/Image/@Url.Content(item.Picture2)"
+                     height="50"
+                     alt="Card image cap" />
+            }
+        </td>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(item.Picture3))
+            {
+                <img class="card-img-bottom d-block radius-image-full"
+                     src="~/Content/Image/@Url.Content(item.Picture3)"
+                     height="50"
+                     alt="Card image cap" />
+            }
+        </td>
+        <td>
+            @if (!string.IsNullOrWhiteSpace(item.Picture4))
+            {
+                <img class="card-img-bottom d-block radius-image-full"
+                     src="~/Content/Image/@Url.Content(item.Picture4)"
+                     height="50"
+                     alt="Card image cap" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+        }
+
+    </table>*@
+
+<div>
+    Page @(Model.Products.PageCount < Model.Products.PageNumber ? 0 :Model.Products.PageNumber) of @Model.Products.PageCount
+    @Html.PagedListPager(Model.Products, page => Url.Action("Index",
+    new { category = @Model.Category, Search = @Model.Search, sortBy = @Model.SortBy, page }))
+</div>

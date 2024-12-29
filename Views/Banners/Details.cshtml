@@ -1,0 +1,91 @@
+﻿@model E_Commerse_Store.Models.Banner
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUsers.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Banner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discription1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discription2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discription3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

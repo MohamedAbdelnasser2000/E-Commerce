@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c379d797a9049a88aea679dd02fb971" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Category" Width="1.5" PointX="0.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Product" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.SubCategory" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Supplier" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.sysdiagram" Width="1.5" PointX="10.75" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_dbo_Products_dbo_Categories_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_SubCategory_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Products_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Products_Suppliers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="6.875" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.AspNetRole" Width="1.5" PointX="9.125" PointY="0.625" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.AspNetUserClaim" Width="1.5" PointX="12.875" PointY="4.75" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.AspNetUserLogin" Width="1.5" PointX="12.5" PointY="2.75" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.AspNetUser" Width="1.5" PointX="9.25" PointY="2.875" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Order" Width="1.5" PointX="7.25" PointY="0.5" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Orders_AspNetUsers" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Orders_Products1" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Invoice" Width="1.5" PointX="7.25" PointY="5.25" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Invoices_AspNetUsers" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Invoices_Orders" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Banner" Width="1.5" PointX="2.75" PointY="5.25" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.Contact" Width="1.5" PointX="12.625" PointY="0.5" />
+        <AssociationConnector Association="E_Commerse_Store_DBModel.FK_Products_Banner" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.getallOrder" Width="1.5" PointX="11.25" PointY="5.125" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.getallOrderUser" Width="1.5" PointX="14.75" PointY="5" />
+        <EntityTypeShape EntityType="E_Commerse_Store_DBModel.v_getallproduct" Width="1.5" PointX="15" PointY="0.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

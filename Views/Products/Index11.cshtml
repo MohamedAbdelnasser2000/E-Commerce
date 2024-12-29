@@ -1,0 +1,210 @@
+﻿@model IEnumerable<E_Commerse_Store.Models.Product>
+
+@{
+    ViewBag.Title = "Index11";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index11</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityPerUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OldPrice)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.UnitWeight)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.UnitInStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitOnOrder)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ProductAvailable)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.AltText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddBadge)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.OfferTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfferBadgeClass)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Discription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LongDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Discription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UnitPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OldPrice)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.UnitWeight)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Size)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Discount)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.UnitInStock)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UnitOnOrder)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductAvailable)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ImageURL)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AltText)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AddBadge)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OfferTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OfferBadgeClass)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.LongDescription)
+    </td>
+    <td>
+        @if (!string.IsNullOrWhiteSpace(item.Picture1))
+        {
+            <img class="card-img-bottom d-block radius-image-full"
+                 src="~/Content/Image/@Url.Content(item.Picture1)"
+                 height="50"
+                 alt="Card image cap" />
+        }
+    </td>
+    <td>
+        @if (!string.IsNullOrWhiteSpace(item.Picture2))
+        {
+            <img class="card-img-bottom d-block radius-image-full"
+                 src="~/Content/Image/@Url.Content(item.Picture2)"
+                 height="50"
+                 alt="Card image cap" />
+        }
+    </td>
+    <td>
+        @if (!string.IsNullOrWhiteSpace(item.Picture3))
+        {
+            <img class="card-img-bottom d-block radius-image-full"
+                 src="~/Content/Image/@Url.Content(item.Picture3)"
+                 height="50"
+                 alt="Card image cap" />
+        }
+    </td>
+    <td>
+        @if (!string.IsNullOrWhiteSpace(item.Picture4))
+        {
+            <img class="card-img-bottom d-block radius-image-full"
+                 src="~/Content/Image/@Url.Content(item.Picture4)"
+                 height="50"
+                 alt="Card image cap" />
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Note)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCategory.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,29 @@
+﻿@model E_Commerse_Store.Models.Product
+@{
+    ViewBag.Title = "AddtoCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @using (Html.BeginForm())
+      {
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <img src="~/Content/Image/@Model.Picture1" style="height:250px;width:100%" />
+        </div>
+
+        <div class="col-lg-6">
+            <h3>@Model.Name</h3>
+            <p><strong>@Model.Price</strong></p>
+
+            <input type="number" placeholder="enter qty" min="1" max="10" name="qty" />
+            <input type="submit" value="Add to Cart" class="btn btn-warning" />
+
+        </div>
+    </div>
+
+      }
+
+</div>

@@ -1,0 +1,124 @@
+﻿@model E_Commerse_Store.Models.v_getallproduct
+
+
+@{
+    ViewBag.Title = "Single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="single contact">
+    <div class="container">
+        <div class="single-main">
+
+
+            <div class="col-md-9 single-main-left">
+                <div class="sngl-top">
+                    <div class="col-md-5 single-top-left">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="~/Content/Image/@Model.Picture1">
+                                    <div class="thumb-image"> <img src="~/Content/Image/@Model.Picture1" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                </li>
+                                <li data-thumb="~/Content/Image/@Model.Picture2">
+                                    <div class="thumb-image"> <img src="~/Content/Image/@Model.Picture2" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                </li>
+                                <li data-thumb="~/Content/Image/@Model.Picture3">
+                                    <div class="thumb-image"> <img src="~/Content/Image/@Model.Picture3" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- FlexSlider -->
+               
+                    </div>
+                    <div class="col-md-7 single-top-right">
+                        <div class="single-para simpleCart_shelfItem">
+                            <h2>@Model.pro_Name</h2>
+                            @*<div class="star-on">
+                               <ul class="star-footer">
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                </ul>
+                                <div class="review">
+                                    <a href="#"> 1 customer review </a>
+
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>*@
+
+                        <h5 class="item_price">$ @Model.Price</h5>
+                            <p>@Model.Discription</p>
+                            @*<div class="available">
+                                <ul>
+                                    <li>
+                                        Color
+                                        <select>
+                                            <option>Silver</option>
+                                            <option>Black</option>
+                                            <option>Dark Black</option>
+                                            <option>Red</option>
+                                        </select>
+                                    </li>
+                                    <li class="size-in">
+                                        Size<select>
+                                            <option>Large</option>
+                                            <option>Medium</option>
+                                            <option>small</option>
+                                            <option>Large</option>
+                                            <option>small</option>
+                                        </select>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>*@
+                            <ul class="tag-men">
+                                <li>
+                                    <span>Catregory</span>
+                                    <span class="women1">: @Model.pro_Categories</span>
+                                </li>
+                                <li>
+                                    <span>SubCategory</span>
+                                    <span class="women1">: @Model.pro_supcategory</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="add-cart item_add">ADD TO CART</a>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="tabs">
+                    <ul class="menu_drop">
+                        <li class="item1">
+                            <a href="#">
+                                <img src="~/Content/NewFolder1/images/arrow.png"  alt=""/>Description
+                            </a>
+                          <p>@Model.LongDescription</p>
+                        </li>
+                        <li class="item2">
+                            <a href="#"><img src="~/Content/NewFolder1/images/arrow.png" alt="">Additional information</a>
+                            <p>@Model.Note</p>
+                        </li>
+                   
+                    </ul>
+                </div>
+            </div>
+      
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

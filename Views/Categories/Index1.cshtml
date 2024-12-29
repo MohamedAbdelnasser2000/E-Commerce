@@ -1,0 +1,35 @@
+﻿@model IEnumerable<E_Commerse_Store.Models.Category>
+
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="modal-header" style="text-align:center"> Category Page</h1>
+
+
+
+<div class="cards-list">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action( "Index", "SubCategories", new { category = item.Name }, null)">
+
+            <div class="card 1">
+               
+
+                <div class="card_image">
+                    @if (!string.IsNullOrWhiteSpace(item.Picture1))
+                    {
+                        <img class="card-img-bottom d-block radius-image-full"
+                             src="~/Content/Image/@Url.Content(item.Picture1)"
+                             alt="Card image cap" />
+                    }
+                </div>
+               
+                <div class="card_title title-white">
+                    <h>@item.Name</h>
+                    <h5>@item.Description</h5>
+                </div>
+            </div>
+            </a>
+            }
+    </div>

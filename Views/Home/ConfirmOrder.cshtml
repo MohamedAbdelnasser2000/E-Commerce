@@ -1,0 +1,30 @@
+﻿@model E_Commerse_Store.Models.getallOrder
+
+@{
+    ViewBag.Title = "ConfirmOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(model => Model.InvoiceId)
+    <br />
+    <br />
+    @Html.EditorFor(model => Model.User)
+    <br />
+    <br />
+    @Html.EditorFor(model => model.Payment)
+    <br />
+    <br />
+    @Html.EditorFor(model => model.Bill)
+    <br />
+    <br />
+    @Html.EditorFor(model => model.InvoiceDate)
+    <br />
+    <br />
+
+    <input type="submit" value="Confirm Order" class="btn btn-success" />
+
+}
